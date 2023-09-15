@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Search Algorithm Visualiser</title>
+        <link rel="stylesheet" href="./style/style.css" />
+        <script src="https://kit.fontawesome.com/226584a37d.js"></script>
+    </head>
+    <body>
+        <header class="header">
+            <div class="wrapper left-wrapper">
+                <div class="name"> <h1>Search Algorithm Visualizer</h1> </div>
+                <div class="algorithms_selector">
+                    <button id="dropbtn" onclick="dropdown()">
+                        Select Algorithm
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content" id="dropdown">
+                        <ul id="algo_list">
+                            <li id="astar">A*</li>
+                            <li id="dijkstra">Dijkstra</li>
+                            <li id="greedy">Greedy First Search</li>
+                            <li id="dfs">Depth First Search</li>
+                            <li id="bfs">Breadth First Search</li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <button id="dropbtn_maze" onclick="dropdown_maze()">
+                        Create Maze
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content" id="dropdown_maze">
+                        <ul id="maze_options">
+                            <li id="wall_maze">Wall Maze</li>
+                            <li id="weight_maze">Weight Maze</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div><button id="startBtn">Visualize</button></div>
+            <div class="wrapper right-wrapper">
+                <div><button id="clear_path">Clear Path</button></div>
+                <div><button id="clear_walls">Clear Walls</button></div>
+                <div><button id="reset_grid">Reset Grid</button></div>
+            </div>
+        </header>
+        
+        <section class="info_section">
+            <div class="info">
+                <div class="cell cell_unvisited"></div>
+                <h3>Unvisited</h3>
+            </div>
+            <div class="info">
+                <div class="cell cell_visited"></div>
+                <h3>Visited</h3>
+            </div>
+            <div class="info">
+                <div class="cell cell_wall"></div>
+                <h3>Wall</h3>
+            </div>
+            <div class="info">
+                <div class="cell cell_path"></div>
+                <h3>Path</h3>
+            </div>
+            <div class="info">
+                <div class="cell cell_weight"></div>
+                <h3>Weight</h3>
+            </div>
+            <div class="info">
+                <div class="cell cell_source"></div>
+                <h3>Source</h3>
+            </div>
+            <div class="info">
+                <div class="cell cell_destination"></div>
+                <h3>Destination</h3>
+            </div>
+        </section>
+
+        <div class="container">
+            <div id="grid"></div>
+        </div>
+
+        
+    </body>
+    <script src="./js/index.js"></script>
+    <script>
+        function dropdown() {
+            document.getElementById("dropdown").classList.toggle("show");
+        }
+        
+        function dropdown_maze() {
+            document.getElementById("dropdown_maze").classList.toggle("show");
+        }
+        
+        window.onclick = function(e) {
+            if (!e.target.matches('#dropbtn')) {
+            var myDropdown = document.getElementById("dropdown");
+                if (myDropdown.classList.contains('show')) 
+                {
+                    myDropdown.classList.remove('show');
+                }
+            }
+            if (!e.target.matches('#dropbtn_maze')) {
+            var myDropdown = document.getElementById("dropdown_maze");
+                if (myDropdown.classList.contains('show')) 
+                {
+                    myDropdown.classList.remove('show');
+                }
+            }
+        }
+    </script>
+</html>
